@@ -1,6 +1,6 @@
 # Commands History
 
-All in README
+All in README.
 
 ## Create project
 
@@ -14,4 +14,10 @@ nlx @nestjs/cli new the-app-name
 # ni -g @nestjs/cli
 nlx @nestjs/cli generate module prisma
 nlx @nestjs/cli generate service prisma
+```
+
+## Setup Swagger
+
+```sh
+ni @nestjs/swagger swagger-ui-express
 ```
