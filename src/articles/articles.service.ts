@@ -28,6 +28,12 @@ export class ArticlesService {
     });
   }
 
+  findIDs() {
+    return this.prisma.article.findMany({
+      select: { id: true },
+    });
+  }
+
   async findOne(id: Article["id"]) {
     const article = await this.prisma.article.findUnique({ where: { id } });
     if (!article) return {};
@@ -65,7 +71,11 @@ export class ArticlesService {
     }
   }
 
+  removeAll() {
+    return this.prisma.article.deleteMany();
+  }
+
   remove(id: Article["id"]) {
-    return `This action removes a #${id} article`;
+    return this.prisma.article.delete({ where: { id } });
   }
 }
