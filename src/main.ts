@@ -5,7 +5,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   const port = parseInt(process.env.PORT, 10) || 4000
+
   const config = new DocumentBuilder()
     .setTitle('Median API')
     .setDescription('The Median API documentation')
@@ -14,6 +16,8 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
+
+  app.enableCors()
 
   await app.listen(port);
 
