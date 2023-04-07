@@ -21,7 +21,8 @@ describe('AppController (e2e)', () => {
       .get('/')
       .expect(200)
       .expect({
-        message: "Welcome to Median API"
+        message: "Welcome to Median API",
+        documentation: "/docs"
       });
   });
 });

@@ -18,7 +18,8 @@ describe('AppController', () => {
   describe('root', () => {
     it('should return the welcome message', () => {
       expect(appController.getHello()).toBe({
-        message: "Welcome to Median API"
+        message: "Welcome to Median API",
+        documentation: "/docs"
       });
     });
   });

@@ -4,7 +4,8 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   getHello() {
     return {
-      message: "🐱 Welcome to Median API"
+      message: "🐱 Welcome to Median API",
+      documentation: "/docs"
     };
   }
 }
