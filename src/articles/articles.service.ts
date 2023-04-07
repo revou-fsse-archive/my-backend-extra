@@ -14,11 +14,20 @@ export class ArticlesService {
   }
 
   findDrafts() {
-    return this.prisma.article.findMany({ where: { published: false } });
+    return this.prisma.article.findMany({
+      where: { published: false },
+    });
   }
 
   findAll() {
-    return this.prisma.article.findMany({ where: { published: true } });
+    return this.prisma.article.findMany({
+      where: {
+        published: true,
+        publishedAt: {
+          lte: new Date(),
+        },
+      },
+    });
   }
 
   async findOne(id: string) {
