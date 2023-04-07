@@ -12,7 +12,4 @@ export class CreateArticleDto {
 
   @ApiProperty({ required: false, default: false })
   published?: boolean;
-
-  @ApiProperty({ required: false })
-  publishedAt?: Date;
 }

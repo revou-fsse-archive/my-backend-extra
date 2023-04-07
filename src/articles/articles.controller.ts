@@ -3,6 +3,7 @@ import {
   Get,
   Post,
   Body,
+  Put,
   Patch,
   Param,
   Delete,
@@ -16,9 +17,9 @@ import { UpdateArticleDto } from "./dto/update-article.dto";
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
-  @Post()
-  create(@Body() createArticleDto: CreateArticleDto) {
-    return this.articlesService.create(createArticleDto);
+  @Get()
+  findAll() {
+    return this.articlesService.findAll();
   }
 
   @Get("drafts")
@@ -26,18 +27,23 @@ export class ArticlesController {
     return this.articlesService.findDrafts();
   }
 
-  @Get()
-  findAll() {
-    return this.articlesService.findAll();
-  }
-
   @Get(":id")
   findOne(@Param("id") id: string) {
     return this.articlesService.findOne(id);
   }
 
-  @Patch(":id")
+  @Post()
+  create(@Body() createArticleDto: CreateArticleDto) {
+    return this.articlesService.create(createArticleDto);
+  }
+
+  @Put(":id")
   update(@Param("id") id: string, @Body() updateArticleDto: UpdateArticleDto) {
+    return this.articlesService.update(id, updateArticleDto);
+  }
+
+  @Patch(":id")
+  patch(@Param("id") id: string, @Body() updateArticleDto: UpdateArticleDto) {
     return this.articlesService.update(id, updateArticleDto);
   }
 

@@ -53,10 +53,11 @@
     "@nestjs/swagger": "6.3.0",
     "@prisma/client": "4.12.0",
     "helmet": "6.0.1",
+    "nanoid": "3.3.6",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
-    "swagger-ui-express": "4.6.2",
-    "voca": "1.4.0"
+    "slugify": "1.6.6",
+    "swagger-ui-express": "4.6.2"
   },
   "devDependencies": {
     "@antfu/ni": "0.21.3",
