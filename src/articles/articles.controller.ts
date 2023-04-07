@@ -33,16 +33,16 @@ export class ArticlesController {
 
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.articlesService.findOne(+id);
+    return this.articlesService.findOne(id);
   }
 
   @Patch(":id")
   update(@Param("id") id: string, @Body() updateArticleDto: UpdateArticleDto) {
-    return this.articlesService.update(+id, updateArticleDto);
+    return this.articlesService.update(id, updateArticleDto);
   }
 
   @Delete(":id")
   remove(@Param("id") id: string) {
-    return this.articlesService.remove(+id);
+    return this.articlesService.remove(id);
   }
 }

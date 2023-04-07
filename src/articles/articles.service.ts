@@ -3,6 +3,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateArticleDto } from "./dto/create-article.dto";
 import { UpdateArticleDto } from "./dto/update-article.dto";
 import { PrismaService } from "src/prisma/prisma.service";
+import { log } from "console";
 
 @Injectable()
 export class ArticlesService {
@@ -20,15 +21,17 @@ export class ArticlesService {
     return this.prisma.article.findMany({ where: { published: true } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} article`;
+  async findOne(id: string) {
+    const article = await this.prisma.article.findUnique({ where: { id } });
+    if (!article) return {};
+    return article;
   }
 
-  update(id: number, updateArticleDto: UpdateArticleDto) {
+  update(id: string, updateArticleDto: UpdateArticleDto) {
     return `This action updates a #${id} article`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} article`;
   }
 }
