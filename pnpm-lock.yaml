@@ -21,6 +21,9 @@ dependencies:
     version: 7.2.0
 
 devDependencies:
+  '@antfu/ni':
+    specifier: 0.21.3
+    version: 0.21.3
   '@nestjs/cli':
     specifier: ^9.0.0
     version: 9.0.0
@@ -144,6 +147,11 @@ packages:
       rxjs: 6.6.7
     transitivePeerDependencies:
       - chokidar
+    dev: true
+
+  /@antfu/ni@0.21.3:
+    resolution: {integrity: sha512-iDtQMeMW1kKV4nzQ+tjYOIPUm6nmh7pJe4sM0kx1jdAChKSCBLStqlgIoo5Tce++p+o8cBiWIzC3jg6oHyjzMA==}
+    hasBin: true
     dev: true
 
   /@babel/code-frame@7.21.4:
