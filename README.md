@@ -19,7 +19,15 @@ Install the recommended runner for npm/yarn/pnpm:
 $ pnpm add -g @antfu/ni
 ```
 
-Install dependencies:
+Install global CLI:
+
+```sh
+$ ni -g @nestjs/cli
+$ ni -g prettier
+$ ni -g eslint
+```
+
+Install local dependencies:
 
 ```sh
 $ ni
