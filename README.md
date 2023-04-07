@@ -64,16 +64,20 @@ nr prisma:studio
 nr prisma:seed
 ```
 
-## Running the app
+## Run for Development
 
 ```sh
-# development with watch mode
+# with watch
 $ nr dev
 
-# development
+# without watch
 $ nr start
+```
 
-# production mode
+## Build for Production
+
+```sh
+$ nr build
 $ nr start:prod
 ```
 
