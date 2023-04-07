@@ -1,16 +1,15 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Article } from "@prisma/client";
 
 export class CreateArticleDto {
   @ApiProperty({ default: "Example title" })
-  title: Article["title"];
+  title: string;
 
   @ApiProperty({ required: false, default: "Example description" })
-  description?: Article["description"];
+  description?: string;
 
   @ApiProperty({ default: "Example body for longer content..." })
-  body: Article["body"];
+  body: string;
 
   @ApiProperty({ required: false, default: false })
-  published?: Article["published"];
+  published?: boolean;
 }
