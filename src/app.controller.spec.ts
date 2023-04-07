@@ -1,9 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test, TestingModule } from "@nestjs/testing";
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
 
-describe('AppController', () => {
+describe("AppController", () => {
   let appController: AppController;
 
   beforeEach(async () => {
@@ -15,11 +15,11 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return the welcome message', () => {
+  describe("root", () => {
+    it("should return the welcome message", () => {
       expect(appController.getHello()).toStrictEqual({
         message: "🐱 Welcome to Median API",
-        documentation: "/docs"
+        documentation: "/docs",
       });
     });
   });
