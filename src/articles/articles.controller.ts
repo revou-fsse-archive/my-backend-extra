@@ -21,6 +21,11 @@ export class ArticlesController {
     return this.articlesService.create(createArticleDto);
   }
 
+  @Get("drafts")
+  findDrafts() {
+    return this.articlesService.findDrafts();
+  }
+
   @Get()
   findAll() {
     return this.articlesService.findAll();
