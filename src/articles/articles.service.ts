@@ -5,6 +5,7 @@ import { UpdateArticleDto } from "./dto/update-article.dto";
 
 import { PrismaService } from "src/prisma/prisma.service";
 import { createArticleSlug } from "src/utils/slug";
+import { Article } from "@prisma/client";
 
 @Injectable()
 export class ArticlesService {
@@ -27,7 +28,7 @@ export class ArticlesService {
     });
   }
 
-  async findOne(id: string) {
+  async findOne(id: Article["id"]) {
     const article = await this.prisma.article.findUnique({ where: { id } });
     if (!article) return {};
     return article;
@@ -48,7 +49,7 @@ export class ArticlesService {
     }
   }
 
-  update(id: string, updateArticleDto: UpdateArticleDto) {
+  update(id: Article["id"], updateArticleDto: UpdateArticleDto) {
     try {
       return this.prisma.article.update({
         where: { id },
@@ -64,7 +65,7 @@ export class ArticlesService {
     }
   }
 
-  remove(id: string) {
+  remove(id: Article["id"]) {
     return `This action removes a #${id} article`;
   }
 }
