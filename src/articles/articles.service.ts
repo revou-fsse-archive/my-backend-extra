@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 
 import { CreateArticleDto } from "./dto/create-article.dto";
 import { UpdateArticleDto } from "./dto/update-article.dto";
@@ -36,7 +36,9 @@ export class ArticlesService {
 
   async findOne(id: Article["id"]) {
     const article = await this.prisma.article.findUnique({ where: { id } });
-    if (!article) return {};
+    if (!article) {
+      throw new NotFoundException(`Article with id:${id} does not exist`);
+    }
     return article;
   }
 
@@ -76,6 +78,11 @@ export class ArticlesService {
   }
 
   remove(id: Article["id"]) {
-    return this.prisma.article.delete({ where: { id } });
+    try {
+      return this.prisma.article.delete({ where: { id } });
+    } catch (error) {
+      console.error(error);
+      return { message: `Article with id:${id} cannot be removed` };
+    }
   }
 }
