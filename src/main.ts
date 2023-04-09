@@ -10,7 +10,7 @@ async function bootstrap() {
 
   app.enableCors();
   app.use(helmet());
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
   const config = new DocumentBuilder()
     .setTitle("Median API")
