@@ -11,35 +11,9 @@
 
 Simple API example made with [NestJS](https://github.com/nestjs/nest) framework using its TypeScript starter repository.
 
-## Installation
+## Prepare database
 
-Install the recommended runner for npm/yarn/pnpm:
-
-```sh
-$ pnpm add -g @antfu/ni
-```
-
-Install global CLI:
-
-```sh
-$ ni -g @nestjs/cli
-$ ni -g prettier
-$ ni -g eslint
-```
-
-Install local dependencies:
-
-```sh
-$ ni
-```
-
-Check available scripts/commands:
-
-```sh
-$ nr
-```
-
-## Preparing the database
+Make sure the database is ready before doing any dependency installation.
 
 Run Docker and run Docker Compose to run the PostgreSQL instance:
 
@@ -53,7 +27,49 @@ Edit `.env` file:
 DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
 ```
 
-Check the Prisma setup:
+## Install dependencies
+
+Install the recommended agent runner:
+
+```sh
+$ pnpm add -g @antfu/ni
+```
+
+This allow to automatically detect if we're using either npm/yarn/pnpm.
+
+Install global CLI:
+
+```sh
+$ ni -g @nestjs/cli  # npm i -g
+$ ni -g prettier
+$ ni -g eslint
+```
+
+Install local dependencies:
+
+```sh
+$ ni  # npm install
+```
+
+Check available scripts/commands:
+
+```sh
+$ nr  # npm run
+```
+
+## Run for Development
+
+Run the NestJS server:
+
+```sh
+# with watch
+$ nr dev
+
+# without watch
+$ nr start
+```
+
+Check the Prisma commands accordingly:
 
 ```sh
 nr prisma:format
@@ -64,16 +80,6 @@ nr prisma:studio
 nr prisma:seed
 ```
 
-## Run for Development
-
-```sh
-# with watch
-$ nr dev
-
-# without watch
-$ nr start
-```
-
 ## Build for Production
 
 ```sh
@@ -81,7 +87,7 @@ $ nr build
 $ nr start:prod
 ```
 
-## Test
+## Test for Assurance
 
 ```sh
 # unit tests
