@@ -37,3 +37,11 @@ ni @nestjs/swagger swagger-ui-express
 ```sh
 nest generate resource
 ```
+
+Implement the resource in controller (endpoint) and service (database)
+
+## Set up ValidationPipe globally
+
+```sh
+ni class-validator class-transformer
+```
