@@ -76,3 +76,10 @@ nest generate resource
 ni @nestjs/passport @nestjs/jwt passport passport-jwt
 ni -D @types/passport-jwt
 ```
+
+### Hashing passwords
+
+```sh
+ni bcrypt
+ni -D @types/bcrypt
+```
