@@ -1,5 +1,4 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { Article } from "@prisma/client";
 
 import { CreateArticleDto } from "./dto/create-article.dto";
 import { UpdateArticleDto } from "./dto/update-article.dto";
@@ -19,12 +18,18 @@ export class ArticlesService {
           lte: new Date(),
         },
       },
+      include: {
+        author: true,
+      },
     });
   }
 
   findDrafts() {
     return this.prisma.article.findMany({
       where: { published: false },
+      include: {
+        author: true,
+      },
     });
   }
 
@@ -34,8 +39,13 @@ export class ArticlesService {
     });
   }
 
-  async findOne(id: Article["id"]) {
-    const article = await this.prisma.article.findUnique({ where: { id } });
+  async findOne(id: string) {
+    const article = await this.prisma.article.findUnique({
+      where: { id },
+      include: {
+        author: true,
+      },
+    });
     if (!article) {
       throw new NotFoundException(`Article with id:${id} does not exist`);
     }
@@ -43,46 +53,42 @@ export class ArticlesService {
   }
 
   create(createArticleDto: CreateArticleDto) {
-    try {
-      return this.prisma.article.create({
-        data: {
-          ...createArticleDto,
-          slug: createArticleSlug(createArticleDto.title),
-          publishedAt: createArticleDto.published ? new Date() : null,
-        },
-      });
-    } catch (error) {
-      console.error(error);
-      return { message: "Cannot create article" };
-    }
+    return this.prisma.article.create({
+      data: {
+        ...createArticleDto,
+        slug: createArticleSlug(createArticleDto.title),
+        publishedAt: createArticleDto.published ? new Date() : null,
+      },
+      include: {
+        author: true,
+      },
+    });
   }
 
-  update(id: Article["id"], updateArticleDto: UpdateArticleDto) {
-    try {
-      return this.prisma.article.update({
-        where: { id },
-        data: {
-          ...updateArticleDto,
-          slug: createArticleSlug(updateArticleDto.title),
-          publishedAt: updateArticleDto.published ? new Date() : null,
-        },
-      });
-    } catch (error) {
-      console.error(error);
-      return { message: "Cannot update article" };
-    }
+  update(id: string, updateArticleDto: UpdateArticleDto) {
+    return this.prisma.article.update({
+      where: { id },
+      data: {
+        ...updateArticleDto,
+        slug: createArticleSlug(updateArticleDto.title),
+        publishedAt: updateArticleDto.published ? new Date() : null,
+      },
+      include: {
+        author: true,
+      },
+    });
   }
 
   removeAll() {
     return this.prisma.article.deleteMany();
   }
 
-  remove(id: Article["id"]) {
-    try {
-      return this.prisma.article.delete({ where: { id } });
-    } catch (error) {
-      console.error(error);
-      return { message: `Article with id:${id} cannot be removed` };
-    }
+  remove(id: string) {
+    return this.prisma.article.delete({
+      where: { id },
+      include: {
+        author: true,
+      },
+    });
   }
 }

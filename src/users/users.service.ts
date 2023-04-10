@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { User } from "@prisma/client";
 
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
@@ -18,15 +17,20 @@ export class UsersService {
     return this.prisma.user.findMany();
   }
 
-  findOne(id: User["id"]) {
-    return this.prisma.user.findUnique({ where: { id } });
+  findOne(id: string) {
+    return this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        articles: true,
+      },
+    });
   }
 
-  update(id: User["id"], updateUserDto: UpdateUserDto) {
+  update(id: string, updateUserDto: UpdateUserDto) {
     return this.prisma.user.update({ where: { id }, data: updateUserDto });
   }
 
-  remove(id: User["id"]) {
+  remove(id: string) {
     return this.prisma.user.delete({ where: { id } });
   }
 }
