@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
+import { Article } from "@prisma/client";
 
 import { CreateArticleDto } from "./dto/create-article.dto";
 import { UpdateArticleDto } from "./dto/update-article.dto";
 
 import { PrismaService } from "src/prisma/prisma.service";
 import { createArticleSlug } from "src/utils/slug";
-import { Article } from "@prisma/client";
 
 @Injectable()
 export class ArticlesService {
