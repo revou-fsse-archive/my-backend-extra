@@ -7,8 +7,14 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from "@nestjs/common";
-import { ApiCreatedResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
+import {
+  ApiBearerAuth,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiTags,
+} from "@nestjs/swagger";
 
 import {
   ArticleCountEntity,
@@ -18,6 +24,7 @@ import {
 import { ArticlesService } from "./articles.service";
 import { CreateArticleDto } from "./dto/create-article.dto";
 import { UpdateArticleDto } from "./dto/update-article.dto";
+import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
 
 @Controller("articles")
 @ApiTags("articles")
@@ -32,6 +39,8 @@ export class ArticlesController {
   }
 
   @Get("drafts")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleEntity, isArray: true })
   async findDrafts() {
     const articles = await this.articlesService.findDrafts();
@@ -39,6 +48,8 @@ export class ArticlesController {
   }
 
   @Get("ids")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleIDEntity, isArray: true })
   async findIDs() {
     const articles = await this.articlesService.findIDs();
@@ -52,6 +63,8 @@ export class ArticlesController {
   }
 
   @Post()
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiCreatedResponse({ type: ArticleEntity })
   async create(@Body() createArticleDto: CreateArticleDto) {
     const article = await this.articlesService.create(createArticleDto);
@@ -59,6 +72,8 @@ export class ArticlesController {
   }
 
   @Put(":id")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleEntity })
   async update(
     @Param("id") id: string,
@@ -69,6 +84,8 @@ export class ArticlesController {
   }
 
   @Patch(":id")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleEntity })
   async patch(
     @Param("id") id: string,
@@ -79,12 +96,16 @@ export class ArticlesController {
   }
 
   @Delete()
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleCountEntity })
   removeAll() {
     return this.articlesService.removeAll();
   }
 
   @Delete(":id")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOkResponse({ type: ArticleEntity })
   async remove(@Param("id") id: string) {
     return new ArticleEntity(await this.articlesService.remove(id));
