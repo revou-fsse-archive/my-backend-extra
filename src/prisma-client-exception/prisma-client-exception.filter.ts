@@ -14,6 +14,15 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
     const message = exception.message.replace(/\n/g, "");
 
     switch (exception.code) {
+      case "P2000": {
+        const status = HttpStatus.BAD_REQUEST;
+        response.status(status).json({
+          statusCode: status,
+          message: "Cannot perform because of too long content",
+          error: { code: "P2000", message: message },
+        });
+        break;
+      }
       case "P2002": {
         const status = HttpStatus.CONFLICT;
         response.status(status).json({
