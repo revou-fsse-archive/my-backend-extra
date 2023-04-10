@@ -6,6 +6,7 @@ All in README.
 
 ```sh
 $ ni -g @nestjs/cli
+$ ni -g prisma
 $ ni -g prettier
 $ ni -g eslint
 ```
@@ -44,4 +45,10 @@ Implement the resource in controller (endpoint) and service (database)
 
 ```sh
 ni class-validator class-transformer
+```
+
+## Filter error exception
+
+```sh
+nest generate filter prisma-client-exception
 ```
