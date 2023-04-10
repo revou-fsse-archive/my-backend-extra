@@ -25,6 +25,7 @@ Edit `.env` file:
 
 ```sh
 DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
+JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 ```
 
 ## Install dependencies
