@@ -37,18 +37,42 @@ ni @nestjs/swagger swagger-ui-express
 
 ```sh
 nest generate resource
+# articles
 ```
 
 Implement the resource in controller (endpoint) and service (database)
 
-## Set up ValidationPipe globally
+### Set up ValidationPipe globally
 
 ```sh
 ni class-validator class-transformer
 ```
 
-## Filter error exception
+### Filter error exception
 
 ```sh
 nest generate filter prisma-client-exception
+```
+
+## Implement CRUD operations for User model
+
+### Generate User module resources
+
+```sh
+nest generate resource
+# users
+```
+
+### Generate Auth module resources
+
+```sh
+nest generate resource
+# auth
+```
+
+### Setup Passport
+
+```sh
+ni @nestjs/passport @nestjs/jwt passport passport-jwt
+ni -D @types/passport-jwt
 ```
