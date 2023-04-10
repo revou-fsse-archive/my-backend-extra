@@ -47,7 +47,7 @@ export class ArticlesService {
       },
     });
     if (!article) {
-      throw new NotFoundException(`Article with id:${id} does not exist`);
+      throw new NotFoundException(`Article with id: ${id} does not exist`);
     }
     return article;
   }
