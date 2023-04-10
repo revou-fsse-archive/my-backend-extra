@@ -28,6 +28,9 @@ export class ArticleEntity implements Article {
 
   @ApiProperty({ required: false, nullable: true })
   publishedAt: Date | null;
+
+  @ApiProperty({ required: false, nullable: true })
+  authorId: string | null;
 }
 
 export class ArticleIDEntity {
