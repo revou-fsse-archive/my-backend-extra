@@ -11,7 +11,7 @@
 
 Simple API example made with [NestJS](https://github.com/nestjs/nest) framework using its TypeScript starter repository.
 
-## Prepare database
+## Prepare Database
 
 Make sure the database is ready before doing any dependency installation.
 
@@ -28,7 +28,7 @@ DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
 JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 ```
 
-## Install dependencies
+## Setup Package Manager
 
 Install the recommended agent runner:
 
@@ -45,6 +45,8 @@ $ ni -g @nestjs/cli  # npm i -g
 $ ni -g prettier
 $ ni -g eslint
 ```
+
+## Install Dependencies
 
 Install local dependencies:
 
@@ -69,6 +71,14 @@ $ nr dev
 # without watch
 $ nr start
 ```
+
+Then open <http://localhost:4000> on your browser.
+
+## API Documentation with Swagger
+
+After running the server on local, open <http://localhost:4000/docs> on your browser. Or if already deployed, check the `/docs` route.
+
+## Database Operation on Development
 
 Check the Prisma commands accordingly:
 
@@ -100,14 +110,6 @@ $ nr test:e2e
 # test coverage
 $ nr test:cov
 ```
-
-## Docs
-
-(TODO)
-
-## Support
-
-NestJS is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## License
 
