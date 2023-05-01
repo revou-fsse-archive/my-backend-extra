@@ -7,21 +7,24 @@
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 </p>
 
-# Median API
+# My API Infra
 
-Simple API example made with [NestJS](https://github.com/nestjs/nest) framework using its TypeScript starter repository.
+Simple REST API made with [NestJS](https://github.com/nestjs/nest) framework using its TypeScript starter repository. And deployed with [Google Cloud Platform](https://cloud.google.com).
+
+- Live: https://api-infra.mhaidarhanif.com
+- Repo: https://github.com/revou-fsse/my-api-infra
 
 ## Prepare Database
 
 Make sure the database is ready before doing any dependency installation.
 
-Run Docker and run Docker Compose to run the PostgreSQL instance:
+Run Docker on your machine and run Docker Compose to run the PostgreSQL instance in the background:
 
 ```sh
 docker-compose up -d
 ```
 
-Edit `.env` file:
+Edit `.env` file for the app:
 
 ```sh
 DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
