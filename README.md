@@ -27,7 +27,7 @@ docker-compose up -d
 Edit `.env` file for the app:
 
 ```sh
-DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
+DATABASE_URL="postgres://myuser:mypassword@localhost:5432/db"
 JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 ```
 
@@ -64,6 +64,13 @@ $ nr  # npm run
 ```
 
 ## Run for Development
+
+Push schema to the database or generate Prisma schema while in development:
+
+```sh
+prisma:push      # prisma db push
+prisma:generate  # prisma generate
+```
 
 Run the NestJS server:
 

@@ -19,9 +19,9 @@ async function bootstrap() {
   app.setGlobalPrefix("api", { exclude: ["docs"] });
 
   const config = new DocumentBuilder()
-    .setTitle("Median API")
-    .setDescription("The Median API documentation")
-    .setVersion("0.1")
+    .setTitle("My API Infra")
+    .setDescription("The API Infra documentation")
+    .setVersion("1.0.0")
     .addBearerAuth()
     .build();
 

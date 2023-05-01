@@ -18,7 +18,7 @@ describe("AppController (e2e)", () => {
 
   it("/ (GET)", () => {
     return request(app.getHttpServer()).get("/").expect(200).expect({
-      message: "🐱 Welcome to Median API",
+      message: "Welcome to The REST API",
       documentation: "/docs",
     });
   });

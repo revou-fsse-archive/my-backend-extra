@@ -18,7 +18,7 @@ describe("AppController", () => {
   describe("root", () => {
     it("should return the welcome message", () => {
       expect(appController.getHello()).toStrictEqual({
-        message: "🐱 Welcome to Median API",
+        message: "Welcome to The REST API",
         documentation: "/docs",
       });
     });

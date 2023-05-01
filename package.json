@@ -1,7 +1,7 @@
 {
-  "name": "median-api",
+  "name": "my-api-infra",
   "version": "0.1.0",
-  "description": "Median API",
+  "description": "My API Infra",
   "author": "M Haidar Hanif",
   "private": true,
   "license": "UNLICENSED",
