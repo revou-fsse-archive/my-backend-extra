@@ -24,4 +24,4 @@ export const jwtSecret = process.env.JWT_SECRET;
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
 })
-export class AuthModule {}
+export class AuthModule { }

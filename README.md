@@ -18,17 +18,17 @@ Simple REST API made with [NestJS](https://github.com/nestjs/nest) and Container
 
 Make sure the database is ready before doing any dependency installation.
 
-Run Docker on your machine and run Docker Compose to run the PostgreSQL instance in the background:
-
-```sh
-docker-compose up -d
-```
-
 Edit `.env` file for the app:
 
 ```sh
 DATABASE_URL="postgres://myuser:mypassword@localhost:5432/db"
 JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
+```
+
+Run Docker on your machine and run Docker Compose that specifically only run the database instance in the background:
+
+```sh
+docker compose -f docker-compose.dev.yaml up -d
 ```
 
 ## Setup Package Manager
@@ -108,6 +108,36 @@ $ nr build
 $ nr start:prod
 ```
 
+## Build for Production with Container
+
+Build the image and run the container with Docker Compose, that run both the web app and the database:
+
+```sh
+$ docker compose build
+$ docker compose up
+$ curl -i localhost:4000
+$ docker-compose down
+```
+
+## Push the Image to Docker Hub
+
+Login, tag, and push the image:
+
+```
+$ docker login
+$ docker tag my-backend-extra mhaidarh/my-backend-extra
+$ docker push mhaidarh/my-backend-extra
+```
+
+## Pull and Run the Container from Docker Hub
+
+Check if it can be pulled and run:
+
+```sh
+$ docker pull mhaidarh/my-backend-extra
+$ docker run -p 4000:4000 -d --name my-backend-extra-container mhaidarh/my-backend-extra
+```
+
 ## Test for Assurance
 
 ```sh
@@ -124,3 +154,8 @@ $ nr test:cov
 ## License
 
 [MIT](LICENSE).
+
+## References
+
+- [NestJS + Redis + Postgres Local Development With Docker Compose](https://www.tomray.dev/nestjs-docker-compose-postgres)
+- [AlexSKuznetsov/prisma-express](https://github.com/AlexSKuznetsov/prisma-express)

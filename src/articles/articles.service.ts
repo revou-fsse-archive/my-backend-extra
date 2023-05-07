@@ -8,7 +8,7 @@ import { createArticleSlug } from "src/utils/slug";
 
 @Injectable()
 export class ArticlesService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   findAll() {
     return this.prisma.article.findMany({
