@@ -2,15 +2,17 @@
 version: '3.9'
 
 services:
-  postgres:
+  database:
     image: postgres:15.2-alpine
-    restart: always
+    container_name: my-backend-extra-db
+    hostname: database
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
     env_file:
       - .env
+    restart: always
 
 volumes:
   postgres:
