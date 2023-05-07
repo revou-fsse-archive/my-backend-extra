@@ -110,12 +110,22 @@ $ nr start:prod
 
 ## Build for Production with Container
 
-Build the image and run the container with Docker Compose, that run both the web app and the database:
+Build the app image only:
 
 ```sh
 $ docker compose build
+```
+
+Run Docker Compose for both app container and database container:
+
+```
 $ docker compose up
-$ curl -i localhost:4000
+$ curl -i localhost:4000/api
+```
+
+To stop compose that was run without `-d`:
+
+```sh
 $ docker-compose down
 ```
 
@@ -125,7 +135,6 @@ Login, tag, and push the image:
 
 ```
 $ docker login
-$ docker tag my-backend-extra mhaidarh/my-backend-extra
 $ docker push mhaidarh/my-backend-extra
 ```
 
@@ -136,6 +145,12 @@ Check if it can be pulled and run:
 ```sh
 $ docker pull mhaidarh/my-backend-extra
 $ docker run -p 4000:4000 -d --name my-backend-extra-container mhaidarh/my-backend-extra
+```
+
+## Check Docker image size
+
+```sh
+docker inspect -f "{{ .Size }}" mhaidarh/my-backend-extra | numfmt --to=si
 ```
 
 ## Test for Assurance
