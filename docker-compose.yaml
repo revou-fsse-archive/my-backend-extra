@@ -4,7 +4,7 @@ version: '3.9'
 services:
   database:
     image: postgres:15.2-alpine
-    container_name: my-backend-extra-db
+    container_name: my-backend-extra-database
     hostname: database
     volumes:
       - postgres:/var/lib/postgresql/data
