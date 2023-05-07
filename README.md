@@ -7,12 +7,12 @@
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 </p>
 
-# My API Infra
+# My Backend Extra
 
-Simple REST API made with [NestJS](https://github.com/nestjs/nest) framework using its TypeScript starter repository. And deployed with [Google Cloud Platform](https://cloud.google.com).
+Simple REST API made with [NestJS](https://github.com/nestjs/nest) and Containerized with Docker.
 
-- Live: https://api-infra.mhaidarhanif.com
-- Repo: https://github.com/revou-fsse/my-api-infra
+- Live: https://hub.docker.com/r/mhaidarh/my-backend-extra
+- Repo: https://github.com/revou-fsse/my-backend-extra
 
 ## Prepare Database
 
