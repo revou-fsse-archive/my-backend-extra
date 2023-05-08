@@ -11,7 +11,8 @@
 
 Simple REST API made with [NestJS](https://github.com/nestjs/nest) and Containerized with Docker.
 
-- Live: https://hub.docker.com/r/mhaidarh/my-backend-extra
+- Live: https://my-backend-extra.mhaidarhanif.com
+- Image: https://hub.docker.com/r/mhaidarh/my-backend-extra
 - Repo: https://github.com/revou-fsse/my-backend-extra
 
 ## Prepare Database
@@ -24,6 +25,9 @@ Edit `.env` file for the app:
 DATABASE_URL="postgres://myuser:mypassword@localhost:5432/db"
 JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 ```
+
+- `DATABASE_URL`, can be retreived from Docker get automatically from Railway `${{Postgres.DATABASE_URL}}`
+- `JWT_SECRET`, recommended to generate with `scripts/random.sh`
 
 Run Docker on your machine and run Docker Compose that specifically only run the database instance in the background:
 
@@ -152,6 +156,14 @@ $ docker run -p 4000:4000 -d --name my-backend-extra-container mhaidarh/my-backe
 ```sh
 docker inspect -f "{{ .Size }}" mhaidarh/my-backend-extra | numfmt --to=si
 ```
+
+## Deployment on Railway
+
+1. Create a new project
+2. Create a PostgreSQL instance
+3. Connect GitHub repo to Railway project, add the environment variables
+   - `DATABASE_URL`, get automatically from Railway `${{Postgres.DATABASE_URL}}`
+   - `JWT_SECRET`, recommended to generate with `scripts/random.sh`
 
 ## Test for Assurance
 
