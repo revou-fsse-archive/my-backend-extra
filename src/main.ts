@@ -19,8 +19,8 @@ async function bootstrap() {
   app.setGlobalPrefix("api", { exclude: ["docs"] });
 
   const config = new DocumentBuilder()
-    .setTitle("My API Infra")
-    .setDescription("The API Infra documentation")
+    .setTitle("My Backend Extra")
+    .setDescription("The API documentation")
     .setVersion("1.0.0")
     .addBearerAuth()
     .build();
