@@ -1,19 +1,19 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="NestJS Logo" /></a>
 </p>
 
-<p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+<p align="center">NestJS is a progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
 <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 </p>
 
 # My Backend Extra
 
 Simple REST API made with [NestJS](https://github.com/nestjs/nest) and Containerized with Docker.
 
-- Live: https://my-backend-extra.mhaidarhanif.com
-- Image: https://hub.docker.com/r/mhaidarh/my-backend-extra
-- Repo: https://github.com/revou-fsse/my-backend-extra
+- Live: <https://my-backend-extra.mhaidarhanif.com>
+- Image: <https://hub.docker.com/r/mhaidarh/my-backend-extra>
+- Repo: <https://github.com/revou-fsse/my-backend-extra>
 
 ## Prepare Database
 
@@ -26,7 +26,9 @@ DATABASE_URL="postgres://myuser:mypassword@localhost:5432/db"
 JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 ```
 
-- `DATABASE_URL`, can be retreived from Docker get automatically from Railway `${{Postgres.DATABASE_URL}}`
+- `DATABASE_URL`, can be retreived from your choice:
+  - Local database instance
+  - Local database container, explained below to run it
 - `JWT_SECRET`, recommended to generate with `scripts/random.sh`
 
 Run Docker on your machine and run Docker Compose that specifically only run the database instance in the background:
@@ -184,5 +186,5 @@ $ nr test:cov
 
 ## References
 
-- [NestJS + Redis + Postgres Local Development With Docker Compose](https://www.tomray.dev/nestjs-docker-compose-postgres)
+- [NestJS + Redis + Postgres Local Development With Docker Compose](https://tomray.dev/nestjs-docker-compose-postgres)
 - [AlexSKuznetsov/prisma-express](https://github.com/AlexSKuznetsov/prisma-express)
