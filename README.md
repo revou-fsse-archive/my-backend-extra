@@ -37,36 +37,27 @@ Run Docker on your machine and run Docker Compose that specifically only run the
 docker compose -f docker-compose.dev.yaml up -d
 ```
 
-## Setup Package Manager
-
-Install the recommended agent runner:
-
-```sh
-$ pnpm add -g @antfu/ni
-```
-
-This allow to automatically detect if we're using either npm/yarn/pnpm.
-
-Install global CLI:
-
-```sh
-$ ni -g @nestjs/cli  # npm i -g
-$ ni -g prettier
-$ ni -g eslint
-```
 
 ## Install Dependencies
 
 Install local dependencies:
 
 ```sh
-$ ni  # npm install
+$ pnpm i
+```
+
+Install global dependencies:
+
+```sh
+$ pnpm i -g @nestjs/cli
+$ pnpm i -g prettier
+$ pnpm i -g eslint
 ```
 
 Check available scripts/commands:
 
 ```sh
-$ nr  # npm run
+$ pnpm run
 ```
 
 ## Run for Development
@@ -74,18 +65,18 @@ $ nr  # npm run
 Push schema to the database or generate Prisma schema while in development:
 
 ```sh
-prisma:push      # prisma db push
-prisma:generate  # prisma generate
+pnpm prisma:push      # prisma db push
+pnpm prisma:generate  # prisma generate
 ```
 
 Run the NestJS server:
 
 ```sh
 # with watch
-$ nr dev
+$ pnpm dev
 
 # without watch
-$ nr start
+$ pnpm start
 ```
 
 Then open <http://localhost:4000> on your browser.
@@ -99,19 +90,19 @@ After running the server on local, open <http://localhost:4000/docs> on your bro
 Check the Prisma commands accordingly:
 
 ```sh
-nr prisma:format
-nr prisma:validate
-nr prisma:generate
-nr prisma:push
-nr prisma:studio
-nr prisma:seed
+pnpm prisma:format
+pnpm prisma:validate
+pnpm prisma:generate
+pnpm prisma:push
+pnpm prisma:studio
+pnpm prisma:seed
 ```
 
 ## Build for Production
 
 ```sh
-$ nr build
-$ nr start:prod
+$ pnpm build
+$ pnpm start:prod
 ```
 
 ## Build for Production with Container
@@ -171,13 +162,13 @@ docker inspect -f "{{ .Size }}" mhaidarh/my-backend-extra | numfmt --to=si
 
 ```sh
 # unit tests
-$ nr test
+$ pnpm test
 
 # e2e tests
-$ nr test:e2e
+$ pnpm test:e2e
 
 # test coverage
-$ nr test:cov
+$ pnpm test:cov
 ```
 
 ## License
