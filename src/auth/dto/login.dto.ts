@@ -9,7 +9,7 @@ export class LoginDto {
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(6)
+  @MinLength(8)
   @ApiProperty({ default: "example" })
   password: string;
 }
