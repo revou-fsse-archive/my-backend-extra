@@ -132,6 +132,7 @@ Login, tag, and push the image:
 
 ```
 $ docker login
+$ docker tag my-backend-extra mhaidarh/my-backend-extra
 $ docker push mhaidarh/my-backend-extra
 ```
 
