@@ -23,6 +23,7 @@ USER node
 # To run for production
 FROM node:alpine As production
 COPY package*.json pnpm-lock.yaml ./
+COPY prisma ./
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 RUN npm install -g pnpm
