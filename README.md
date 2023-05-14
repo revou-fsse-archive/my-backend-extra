@@ -34,9 +34,8 @@ JWT_SECRET="abdefghijklmnopqrstuvwxyzabcdefghi"
 Run Docker on your machine and run Docker Compose that specifically only run the database instance in the background:
 
 ```sh
-docker compose -f docker-compose.dev.yaml up -d
+$ docker compose -f docker-compose.dev.yaml up -d
 ```
-
 
 ## Install Dependencies
 
@@ -65,8 +64,8 @@ $ pnpm run
 Push schema to the database or generate Prisma schema while in development:
 
 ```sh
-pnpm prisma:push      # prisma db push
-pnpm prisma:generate  # prisma generate
+$ pnpm prisma:push      # prisma db push
+$ pnpm prisma:generate  # prisma generate
 ```
 
 Run the NestJS server:
@@ -90,12 +89,12 @@ After running the server on local, open <http://localhost:4000/docs> on your bro
 Check the Prisma commands accordingly:
 
 ```sh
-pnpm prisma:format
-pnpm prisma:validate
-pnpm prisma:generate
-pnpm prisma:push
-pnpm prisma:studio
-pnpm prisma:seed
+$ pnpm prisma:format
+$ pnpm prisma:validate
+$ pnpm prisma:generate
+$ pnpm prisma:push
+$ pnpm prisma:studio
+$ pnpm prisma:seed
 ```
 
 ## Build for Production
@@ -123,7 +122,7 @@ $ curl -i localhost:4000/api
 To stop compose that was run without `-d`:
 
 ```sh
-$ docker-compose down
+$ docker compose down
 ```
 
 ## Push the Image to Docker Hub
